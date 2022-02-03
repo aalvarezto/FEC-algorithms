@@ -1,0 +1,12 @@
+{
+	"name": "FEC-algorithms",
+	"type": "module",
+	"version": "1.0.0",
+	"main": "index.js",
+	"repository": "git@github.com:aalvarezto/FEC-algorithms.git",
+	"author": "Andrés Alvarez <ndralvz@gmail.com>",
+	"license": "MIT",
+	"dependencies": {
+		"asciichart": "^1.5.25"
+	}
+}
