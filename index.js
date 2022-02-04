@@ -1,8 +1,19 @@
 "use strict"
 
-import generateData from "./src/generateData.js"
-import createGraph from "./src/createGraph.js"
+import BigOPlotter from "./src/BigOPlotter/index.js"
 
-const arr = generateData(data => data.sort())
+// Cuidado con las optimizaciones de NODE con V8 !!!
 
-createGraph(arr)
+const functionToAnalize = generatedData => {
+	const arr = []
+
+	generatedData.sort()
+
+	// generatedData.sort((a, b) => a - b)
+}
+
+BigOPlotter(functionToAnalize, {
+	testCases: 20,
+	dataWeight: 10000,
+	scale: 1.5,
+})

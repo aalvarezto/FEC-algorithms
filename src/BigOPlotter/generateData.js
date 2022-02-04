@@ -7,25 +7,27 @@ const spinner = ora("Creating data...")
 console.clear()
 spinner.start()
 
-const generateData = func => {
-	const arr = new Array(100).fill(0).map((_, index) => {
-		const newArr = new Array(index * 500).fill(0).map(() => Math.random())
+const generateData = (callback, testCases, dataWeight) => {
+	const promiseList = new Array(testCases).fill(0).map((_, index) => {
 		spinner.render()
+
+		const fakeData = new Array(index * dataWeight)
+			.fill(0)
+			.map(() => Math.random())
 
 		return async () => {
 			const start = performance.now()
 
-			func(newArr)
+			callback(fakeData)
 
 			const end = performance.now()
 			return end - start
 		}
 	})
 
-	return arr
+	return promiseList
 }
 
 spinner.stop()
-spinner.clear()
 
 export default generateData
