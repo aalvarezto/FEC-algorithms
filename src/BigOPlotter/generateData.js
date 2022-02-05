@@ -1,32 +1,21 @@
 "use strict"
 
 import ora from "ora"
+import { getMiliseconds, countUpTo } from "../utils/index.js"
 
 const spinner = ora("Creating data...")
 
 console.clear()
 spinner.start()
 
-const generateData = (callback, testCases, dataWeight) => {
-	const promiseList = new Array(testCases).fill(0).map((_, index) => {
+const generateData = (callback, testCases, dataWeight) =>
+	countUpTo(testCases).map(number => {
 		spinner.render()
 
-		const fakeData = new Array(index * dataWeight)
-			.fill(0)
-			.map(() => Math.random())
+		const fakeData = countUpTo(number * dataWeight).map(Math.random)
 
-		return async () => {
-			const start = performance.now()
-
-			callback(fakeData)
-
-			const end = performance.now()
-			return end - start
-		}
+		return async () => getMiliseconds(callback, fakeData)
 	})
-
-	return promiseList
-}
 
 spinner.stop()
 

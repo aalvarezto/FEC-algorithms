@@ -1,7 +1,6 @@
 "use strict"
 
-import generateData from "./generateData.js"
-import createGraph from "./createGraph.js"
+import plotData from "./plotData.js"
 
 const customOptions = {
 	testCases: 20,
@@ -10,20 +9,9 @@ const customOptions = {
 }
 
 const BigOPlotter = (callback, options) => {
-	const { testCases, dataWeight, scale } = { ...customOptions, ...options }
+	options = { ...customOptions, ...options }
 
-	if (testCases > 200) {
-		throw new Error("Test cases range should be under 200")
-	}
-
-	if (dataWeight > 10000) {
-		throw new Error("Data weight range should be under 1000")
-	}
-
-	const data = generateData(callback, testCases, dataWeight)
-
-	createGraph(data, scale)
+	plotData(callback, options)
 }
 
 export default BigOPlotter
-//
