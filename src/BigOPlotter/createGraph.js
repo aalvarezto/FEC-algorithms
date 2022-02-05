@@ -19,7 +19,9 @@ const createGraph = async (promiseList, scale = 0) => {
 
 	const totaTime = Number((end - start) / 1000).toFixed(2)
 
-	console.log(`\nTotal time ${totaTime} seconds`)
+	console.log(
+		`\nTotal time spent in processing the algorithms: ${totaTime} seconds\n`
+	)
 }
 
 export default createGraph
