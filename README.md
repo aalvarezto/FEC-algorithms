@@ -1,6 +1,6 @@
 # FEC-algorithms
 
-TODO: presentación
+Este repo sirve de guia para el estudio de algoritmos, se va a ir actualizando con el tiempo a medida que el grupo avance con el contendido.
 
 ## Big O Plotter
 
@@ -51,3 +51,9 @@ yarn
 ```
 
 Have Fun!
+
+## Recursos
+
+-   [Practical Algorithms - FrontEnd Masters](https://frontendmasters.com/courses/practical-algorithms/introducing-practical-guide-to-algorithms/)
+
+TODO: Recursos
